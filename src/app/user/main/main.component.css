@@ -1,0 +1,29 @@
+.user-info {
+  padding: 15px 0;
+  background-color: #376AA6;
+  color: #fff;
+  font-size: 14px;
+}
+.user-info p {
+  margin: 0;
+}
+.user-info .username {
+  font-size: 18px;
+  font-weight: 500;
+}
+.user-info .middle-div {
+  border-right: 1px solid;
+  border-left: 1px solid;
+}
+.user-info .middle-div p {
+  word-wrap: break-word;
+}
+.page-header {
+  text-align: center;
+  font-size: 20px;
+  color: #E06C4F;
+  font-weight: 600;
+  padding: 15px 0;
+  box-shadow: 0 2px 2px -2px #808080;
+  margin-bottom: 35px;
+}

@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="album col-12 col-sm-6 col-lg-4" *ngFor="let album of userAlbums; let i = index;">
+      <div class="card" [routerLink]="['album', album.id]">
+        <div class="card-header">Album {{i+1}}</div>
+        <div class="card-body">
+          <h6 class="card-title">{{album.title}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

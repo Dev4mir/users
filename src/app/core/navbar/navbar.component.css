@@ -1,0 +1,24 @@
+:host {
+  margin-bottom: 60px;
+}
+.navbar {
+  transition: background-color 500ms ease-out;
+}
+.navbar .navbar-brand {
+  color: #F89845;
+  font-weight: 700;
+  font-size: 17px;
+}
+.navbar-light .navbar-nav .nav-link {
+  cursor: pointer;
+  color: #000;
+  font-weight: 600;
+  font-size: 13px;
+  transition: color 500ms ease-out;
+}
+.page-scrolled {
+  background-color: #376AA6;
+}
+.page-scrolled .navbar-nav .nav-link {
+  color: #fff;
+}

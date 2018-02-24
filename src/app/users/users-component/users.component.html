@@ -1,0 +1,104 @@
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <p class="users-text">Users</p>
+      <button type="button" class="btn btn-light ml-auto addUser" data-toggle="modal" data-target="#addUserModal">+ Add User</button>
+      <!-- Modal -->
+      <div class="modal fade" #modal id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title" id="addUserModalLabel">User Information</p>
+            </div>
+            <form [formGroup]="fg" (ngSubmit)="addUser(fg.value)">
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="name">Name</label>
+                      <input formControlName="name" type="text" class="form-control" id="name" placeholder="eg: John Doe">
+                      <div class="error-msg" *ngIf="fg.controls['name'].errors && fg.controls['name'].touched">
+                        <span *ngIf="fg.controls['name'].errors.required">- Required</span>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <label for="email">Email Address</label>
+                      <input formControlName="email" type="email" class="form-control" id="email" placeholder="eg: johndoe@gmail.com">
+                      <div class="error-msg" *ngIf="fg.controls['email'].errors && fg.controls['email'].touched">
+                        <span *ngIf="fg.controls['email'].errors.required">- Required</span>
+                        <span *ngIf="fg.controls['email'].errors.email && !fg.controls['email'].errors.required">- Should be valid email</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="phone">Phone</label>
+                      <input formControlName="phone" type="number" class="form-control" id="phone" placeholder="eg: 0112345678">
+                      <div class="error-msg" *ngIf="fg.controls['phone'].errors && fg.controls['phone'].touched">
+                        <span *ngIf="fg.controls['phone'].errors.required">- Required</span>
+                        <span *ngIf="fg.controls['phone'].errors.pattern && !fg.controls['phone'].errors.required">- Should be a number</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" formGroupName="address">
+                    <div class="col-12">
+                      <label for="address">Address</label>
+                    </div>
+                    <div class="col-4">
+                      <input formControlName="city" type="text" class="form-control" placeholder="City">
+                      <div class="error-msg" *ngIf="fg.controls.address.controls['city'].errors && fg.controls.address.controls['city'].touched">
+                        <span *ngIf="fg.controls.address.controls['city'].errors.required">- Required</span>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <input formControlName="street" type="text" class="form-control" placeholder="Street">
+                      <div class="error-msg" *ngIf="fg.controls.address.controls['street'].errors && fg.controls.address.controls['street'].touched">
+                        <span *ngIf="fg.controls.address.controls['street'].errors.required">- Required</span>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <input formControlName="suite" type="text" class="form-control" placeholder="-">
+                      <div class="error-msg" *ngIf="fg.controls.address.controls['suite'].errors && fg.controls.address.controls['suite'].touched">
+                        <span *ngIf="fg.controls.address.controls['suite'].errors.required">- Required</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" [disabled]="fg.invalid">Save changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="table-responsive-md">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Number</th>
+          <th scope="col">Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" [routerLink]="['/user', user.id]">
+          <th scope="row"><input type="checkbox"></th>
+          <td><strong>{{user.name}}</strong></td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.address.street}}, {{user.address.suite}}, {{user.address.city}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

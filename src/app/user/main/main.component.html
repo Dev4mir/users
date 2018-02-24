@@ -1,0 +1,29 @@
+<div class="user-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <p class="username">{{userData?.name}}</p>
+      </div>
+      <div class="col-4 middle-div">
+        <p>{{userData?.email}}</p>
+        <p>{{userData?.phone}}</p>
+      </div>
+      <div class="col-4">
+        <span>{{userData?.address.street}}</span>,
+        <span> {{userData?.address.suite}}</span>,
+        <span> {{userData?.address.city}}</span>,
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p class="page-header">
+        <span *ngIf="!showPhotos; else photos">{{username}}</span>
+        <ng-template #photos>Photos</ng-template>
+      </p>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
