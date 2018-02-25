@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: 'app/user/user.module#UserModule'
   },
   {
+    path: '404',
+    component: NotFoundComponent
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }

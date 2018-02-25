@@ -26,7 +26,7 @@ export class MainComponent implements OnInit, OnDestroy {
         this.userData = res;
         this.username = res['name'] + "'s Albums";
       }, err => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/404']);
       })
 
     });

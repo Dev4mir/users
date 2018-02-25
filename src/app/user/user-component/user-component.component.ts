@@ -24,7 +24,7 @@ export class UserComponent implements OnInit, OnDestroy {
       this.subscription = this.userService.getUserAlbums(userId).subscribe(res => {
         this.userAlbums = res;
       }, err => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/404']);
       });
     })
   }
