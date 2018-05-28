@@ -396,19 +396,19 @@ var UsersService = /** @class */ (function () {
         this.http = http;
     }
     UsersService.prototype.getAllUsers = function () {
-        var url = 'http://jsonplaceholder.typicode.com/users';
+        var url = 'https://jsonplaceholder.typicode.com/users';
         return this.http.get(url);
     };
     UsersService.prototype.getUserById = function ($userId) {
-        var url = 'http://jsonplaceholder.typicode.com/users/' + $userId;
+        var url = 'https://jsonplaceholder.typicode.com/users/' + $userId;
         return this.http.get(url);
     };
     UsersService.prototype.getUserAlbums = function ($userId) {
-        var url = 'http://jsonplaceholder.typicode.com/albums?userId=' + $userId;
+        var url = 'https://jsonplaceholder.typicode.com/albums?userId=' + $userId;
         return this.http.get(url);
     };
     UsersService.prototype.getAlbumPhotos = function ($albumId) {
-        var url = 'http://jsonplaceholder.typicode.com/photos?albumId=' + $albumId;
+        var url = 'https://jsonplaceholder.typicode.com/photos?albumId=' + $albumId;
         return this.http.get(url);
     };
     UsersService = __decorate([
